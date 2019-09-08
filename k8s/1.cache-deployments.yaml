@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: data
+  labels:
+    app: simple-shop
+    component: cache
+    team: platform
+  name: cache
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: simple-shop
+    component: cache
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cache
+spec:
+  template:
+    metadata:
+      namespace: data
+      labels:
+        app: simple-shop
+        component: cache
+        team: platform
+    spec:
+      containers:
+      - name: cache
+        image: redis:5.0.5-alpine

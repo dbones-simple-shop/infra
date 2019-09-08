@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: data
+  labels:
+    app: simple-shop
+    component: queue
+    team: platform
+  name: queue
+spec:
+  ports:
+  - port: 5672
+    name: client
+  - port: 4369
+    name: epmd
+  selector:
+    app: simple-shop
+    component: queue
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: queue
+spec:
+  template:
+    metadata:
+      namespace: data
+      labels:
+        app: simple-shop
+        component: queue
+        team: platform
+    spec:
+      containers:
+      - name: queue
+        image: rabbitmq:alpine
