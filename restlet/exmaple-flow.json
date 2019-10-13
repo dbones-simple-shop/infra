@@ -1,0 +1,412 @@
+{
+  "front-version": "2.21.1",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "0d9932ab-da5f-4f96-b3c2-f1cbff41d3a7",
+      "lastModified": "2019-09-12T00:10:04.340+01:00",
+      "name": "shop"
+    },
+    {
+      "type": "Scenario",
+      "description": "",
+      "id": "2987528e-abc0-4e7b-839f-2132ce5e6f9a",
+      "lastModified": "2019-09-12T00:10:04.341+01:00",
+      "name": "Look up all entries",
+      "requestOrder": [
+        "list all",
+        "get pic 1",
+        "get pic 2",
+        "get pic 3",
+        "create basket",
+        "add item to basket",
+        "checkout",
+        "check if order is ready",
+        "complete order"
+      ],
+      "parentId": "0d9932ab-da5f-4f96-b3c2-f1cbff41d3a7"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/catalog/api/Items"
+      },
+      "id": "8678ad39-75e5-4277-9a2c-b877b53ac1df",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "list all",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/catalog/api/Images/item/patterns-of-enterprise-architecture-book"
+      },
+      "id": "1933c32b-fa1d-4d42-805f-992e24aae3de",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "get pic 1",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/catalog/api/Images/item/devops-handbook-book"
+      },
+      "id": "8e4ecb78-4cee-4c53-95dd-48065a6768e0",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "get pic 2",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/catalog/api/Images/item/domain-driven-design-book"
+      },
+      "id": "dc67ccdb-06c5-48c4-b4e2-4715a661fe08",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "get pic 3",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"id\": \"dave\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/basket/api/Baskets"
+      },
+      "id": "58130acf-3f82-4caa-8c98-02809cda03a4",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "create basket",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"id\": \"${\"shop\".\"Look up all entries\".\"list all\".\"response\".\"body\".\"0\".\"id\"}\",\n  \"quantity\": 1\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/basket/api/Baskets/${\"shop\".\"Look up all entries\".\"create basket\".\"response\".\"body\".\"id\"}/items"
+      },
+      "id": "2a08cdd7-27fc-467b-978c-d369b0fc613f",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "add item to basket",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "${\"shop\".\"Look up all entries\".\"add item to basket\".\"response\".\"body\"}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/basket/api/Baskets/checkout"
+      },
+      "id": "78666150-69c4-43af-b93c-3ea0a6ff7f6a",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "checkout",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "retryConfiguration": {
+        "enabled": true,
+        "intervalInSeconds": 1,
+        "retryCount": 3
+      },
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/ordering/api/Orders/${\"shop\".\"Look up all entries\".\"checkout\".\"response\".\"body\".\"id\"}"
+      },
+      "id": "9f80624c-1423-4b9a-8411-e97daa898409",
+      "lastModified": "2019-09-12T00:10:04.342+01:00",
+      "name": "check if order is ready",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "enabled": false,
+          "path": "",
+          "value": "true"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "path": "$.isOrderReady",
+          "value": "true"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "${\"shop\".\"Look up all entries\".\"check if order is ready\".\"response\".\"body\"}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "${host}",
+        "path": "/ordering/api/Orders/complete"
+      },
+      "id": "a4bce5ef-ec79-42cb-90b8-0897646845d8",
+      "lastModified": "2019-09-12T00:10:04.343+01:00",
+      "name": "complete order",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "2987528e-abc0-4e7b-839f-2132ce5e6f9a"
+    }
+  ]
+}
